@@ -1,8 +1,8 @@
-import StatusBar from "../components/organisms/StatusBar";
+import StatusBar from "../components/StatusBar";
+import HomeIndicator from "../components/HomeIndicator";
 function ChattingPage(){
     return(
         <div className="pageWrapper">
-            <StatusBar></StatusBar>
         </div>
     );
 }

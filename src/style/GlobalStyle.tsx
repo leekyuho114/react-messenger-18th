@@ -3,6 +3,10 @@ import reset from "styled-reset";
 import "./color.css";
 const GlobalStyle = createGlobalStyle`
     ${reset}
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    }
     html,body{
         height:100%;
     }
@@ -11,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
         display:flex;
         justify-content: center;
         align-items: center;
+        font-family: 'Pretendard-Regular';
     }
     .mainWrapper{
         width: 23.4375rem;

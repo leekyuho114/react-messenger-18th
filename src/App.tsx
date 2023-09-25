@@ -1,10 +1,12 @@
-import './App.css';
 import GlobalStyle from "./style/GlobalStyle";
+import ChattingPage from "./pages/ChattingPage"
+import "./style/color.css";
 function App() {
   return (
     <>
       <GlobalStyle/>
-      <>hello</>
+      {/* 나중에 라우트 추가 */}
+      <ChattingPage/>
     </>
   );
 }

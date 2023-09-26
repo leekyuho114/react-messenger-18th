@@ -1,4 +1,4 @@
-import { ReactComponent as HomeBar } from "../assets/Iphone/HomeBar.svg";
+import { ReactComponent as HomeBar } from "../assets/iphone/HomeBar.svg";
 import styled from "styled-components";
 function HomeIndicator(){
     return(

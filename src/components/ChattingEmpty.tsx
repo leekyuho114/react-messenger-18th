@@ -1,4 +1,5 @@
-import { ReactComponent as Chat } from "../assets/Icons/Chat.svg";
+import { ReactComponent as Chat } from "../assets/icons/Chat.svg";
+import ChatBubble from "./ChatBubble";
 import styled from "styled-components";
 import { Body2 } from "../style/font";
 function ChattingEmpty(){
@@ -18,12 +19,6 @@ const ChattingEmptyWrapper = styled.div`
     width: 23.4375rem;
     height: 37.69rem;
     position : relative;
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer/Edge */
-    &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari*/
-    }
     .defaultChat{
         position : absolute;
         text-align: center;

@@ -8,11 +8,11 @@ function App() {
     <>
       <GlobalStyle/>
         <div className="mainWrapper">
-        <StatusBar/>
-        {/* 나중에 라우터 추가 or Router.js*/}
-        <ChattingPage/>
-        <HomeIndicator/>
-      </div>
+          <StatusBar/>
+          {/* 나중에 라우터 추가 or Router.js*/}
+          <ChattingPage/>
+          <HomeIndicator/>
+        </div>
     </>
   );
 }

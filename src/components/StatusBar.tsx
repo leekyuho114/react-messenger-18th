@@ -1,7 +1,7 @@
-import { ReactComponent as Battery } from "../assets/Iphone/Battery.svg";
-import { ReactComponent as Clock } from "../assets/Iphone/Clock.svg";
-import { ReactComponent as Signal } from "../assets/Iphone/Signal.svg";
-import { ReactComponent as WifiConnection } from "../assets/Iphone/WifiConnection.svg";
+import { ReactComponent as Battery } from "../assets/iphone/Battery.svg";
+import { ReactComponent as Clock } from "../assets/iphone/Clock.svg";
+import { ReactComponent as Signal } from "../assets/iphone/Signal.svg";
+import { ReactComponent as WifiConnection } from "../assets/iphone/WifiConnection.svg";
 import styled from "styled-components";
 function StatusBar() {
   return (

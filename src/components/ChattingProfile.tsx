@@ -1,7 +1,7 @@
-import { ReactComponent as Back } from "../assets/Icons/Back.svg";
-import { ReactComponent as Call } from "../assets/Icons/Call.svg";
-import { ReactComponent as Friends } from "../assets/Icons/Freinds.svg";
-import { ReactComponent as More } from "../assets/Icons/More.svg";
+import { ReactComponent as Back } from "../assets/icons/Back.svg";
+import { ReactComponent as Call } from "../assets/icons/Call.svg";
+import { ReactComponent as Friends } from "../assets/icons/Freinds.svg";
+import { ReactComponent as More } from "../assets/icons/More.svg";
 import { Heading2, Caption1 } from "../style/font";
 import "../style/color.css";
 import styled from "styled-components";

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ReactComponent as Plus } from "../assets/Icons/Plus.svg";
-import { ReactComponent as Send } from "../assets/Icons/Send.svg";
+import { ReactComponent as Plus } from "../assets/icons/Plus.svg";
+import { ReactComponent as Send } from "../assets/icons/Send.svg";
 import styled from "styled-components";
 import { Body2, Caption1 } from "../style/font";
 function ChattingInput(){
@@ -73,10 +73,11 @@ const StyledForm = styled.form`
         background-color : var(--gray-1);
         top:0.94rem;
         left:3.12rem;
-        width: 17.25rem;
+        width: 14.75rem;
         height: 2.75rem;
         border-radius: 6.25rem;
-        text-indent : 1.25rem;
+        padding-left:1.25rem;
+        padding-right:1.25rem;
         font-family : 'Pretendard-Regular';/*globalstyle 왜 적용안되는지?*/
         color: var(--gray-7);
         font-size: 1.125rem;

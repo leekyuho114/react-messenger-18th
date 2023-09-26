@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'Pretendard-Regular';
         src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
     }
     html,body{
         height:100%;
@@ -17,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         font-family: 'Pretendard-Regular';
     }
+    input{
+        outline: none;
+    }
     .mainWrapper{
         width: 23.4375rem;
         height: 50.75rem;
@@ -26,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     .pageWrapper{ /*pageWrapper는 header footer 제외 높이*/
         width: 23.4375rem;
         height: 45.6875rem;
+        position : relative;
     }
 `;
 

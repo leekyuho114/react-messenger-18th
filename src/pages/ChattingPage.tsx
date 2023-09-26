@@ -1,3 +1,4 @@
+import ChattingEmpty from "../components/ChattingEmpty";
 import ChattingInput from "../components/ChattingInput";
 import ChattingProfile from "../components/ChattingProfile";
 import styled from "styled-components";
@@ -8,6 +9,7 @@ function ChattingPage(){
             <ChattingProfile/>
             <Divider/>
             {/* default, 말하면 생기기 state로  true false 관리 */}
+            <ChattingEmpty/>
             <ChattingInput/>
         </div>
     );

@@ -2,6 +2,7 @@ import { ReactComponent as Chat } from "../assets/icons/Chat.svg";
 import ChatBubble from "./ChatBubble";
 import styled from "styled-components";
 import { Body2 } from "../style/font";
+
 function ChattingEmpty(){
     return(
         <ChattingEmptyWrapper>

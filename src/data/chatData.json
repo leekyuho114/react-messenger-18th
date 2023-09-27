@@ -17,7 +17,7 @@
         ]
       },
       {
-        "chatRommId": 1,
+        "chatRoomId": 1,
         "userList": [0,2],
         "chatList":[
             {

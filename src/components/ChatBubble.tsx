@@ -3,27 +3,26 @@ import "../style/color.css";
 import { Body2 ,Caption2} from "../style/font";
 interface ChatBubbleProps{
     isUser:boolean;
-    content:string;
+    message :string;
 }
-interface IsUserProps{
-    isUser:boolean;
-}
+
 function ChatBubble(props: ChatBubbleProps){
     return(
-            <ChatContainer isUser={props.isUser}>
+            <ChatBubbleContainer isUser={props.isUser}>
                 <div className="chatWrapper">
                     <Caption2 
                     className="writeTime"
                     color="var(--gray-4)">10:24</Caption2>
                     <ChatBox isUser={props.isUser}>
-                        <ChatText isUser={props.isUser}>{props.content}
+                        <ChatText isUser={props.isUser}>{props.message}
                         </ChatText>
                     </ChatBox>
                 </div>
-            </ChatContainer>
+            </ChatBubbleContainer>
     );
 }
-const ChatContainer = styled.div<IsUserProps>`
+//user 쪽 채팅과 상대방쪽 채팅 props로 구분
+const ChatBubbleContainer = styled.div<{isUser:boolean}>`
     display: flex;
     flex-direction : column;
     align-items: ${props => (props.isUser ? "flex-end" : "flex-start")};
@@ -37,7 +36,7 @@ const ChatContainer = styled.div<IsUserProps>`
         margin-bottom : 0.625rem;
     }
 `;
-const ChatBox = styled.div<IsUserProps>`
+const ChatBox = styled.div<{isUser:boolean}>`
     display: inline-block;
     background-color : ${props => (props.isUser ? "var(--green)" : "var(--gray-1)")};
     max-width : 16.8125rem;
@@ -45,7 +44,7 @@ const ChatBox = styled.div<IsUserProps>`
     border-radius: 6.25rem;
     margin : ${props => (props.isUser ? "0.625rem 1.25rem 0.625rem 0" : "0.625rem 0 0.625rem 1.25rem")};
 `;
-const ChatText = styled(Body2)<IsUserProps>`
+const ChatText = styled(Body2)<{isUser:boolean}>`
     color : ${props => (props.isUser ? "var(--gray-1)" : "var(--gray-7)")};
     padding: 0.625rem 1.25rem;
 `;

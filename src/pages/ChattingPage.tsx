@@ -9,8 +9,8 @@ function ChattingPage(){
             
             <ChattingProfile/>
             <Divider/>
-            {/* 대화내용 있고 없음으로 예외처리 */}
-            <ChattingFull/>
+            {/* 대화내용 있고 없음으로 예외처리 isUser 여기서 넘겨야함*/}
+            <ChattingFull chatRoomId={0} isUser={true}/>
             {/* <ChattingEmpty/> */}
             <ChattingInput/>
         </div>

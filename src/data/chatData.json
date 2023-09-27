@@ -1,0 +1,36 @@
+{
+    "chattings": [
+      {
+        "chatRoomId": 0,
+        "userList": [0,3],
+        "chatList":[
+            {
+                "chatId":0,
+                "userId":0,
+                "message" :"에어팟을 끼고 일해도 힘듭니다"
+            },
+            {
+                "chatId":1,
+                "userId":3,
+                "message" :"앗 그렇군뇽"
+            }
+        ]
+      },
+      {
+        "chatRommId": 1,
+        "userList": [0,2],
+        "chatList":[
+            {
+                "chatId":0,
+                "userId":0,
+                "message" :"배고파요"
+            },
+            {
+                "chatId":1,
+                "userId":2,
+                "message" :"네"
+            }
+        ]
+      }
+    ]
+}  

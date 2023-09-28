@@ -9,8 +9,8 @@ function App() {
       <GlobalStyle/>
         <div className="mainWrapper">
           <StatusBar/>
-          {/* 나중에 라우터 추가 or Router.js*/}
-          <ChattingPage/>
+          {/* 나중에 라우터 추가 or Router.js / 그리고 chatting room 여러개*/}
+          <ChattingPage chatRoomId={0}/>
           <HomeIndicator/>
         </div>
     </>

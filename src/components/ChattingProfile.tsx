@@ -4,8 +4,14 @@ import { ReactComponent as Friends } from "../assets/icons/Freinds.svg";
 import { ReactComponent as More } from "../assets/icons/More.svg";
 import { Heading2, Caption1 } from "../style/font";
 import "../style/color.css";
+import { usersState } from "../recoil/state";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-function ChattingProfile(){
+interface ChattingProfileProps{
+    userId:number; 
+}
+function ChattingProfile(props:ChattingProfileProps){
+    const users = useRecoilValue(usersState);
     return(
         <ChattingProfileWrapper>
             <StyledBack/>
@@ -14,10 +20,10 @@ function ChattingProfile(){
             <StyledMore/>
             <UserInfoWrapper>
                 <UserWrapper>
-                    <Heading2>신현재</Heading2>
-                    <Caption1 color="var(--green)">근무 중</Caption1>
+                    <Heading2>{users[props.userId].name}</Heading2>
+                    <Caption1 color={users[props.userId].isWorking ==="근무 중" ? "var(--green)" : "var(--gray-4)"}>{users[props.userId].isWorking}</Caption1>
                 </UserWrapper>
-                <Caption1 color="var(--gray-4)">삼성전자/HR/부장</Caption1> 
+                <Caption1 color="var(--gray-4)">{users[props.userId].company}/{users[props.userId].department}/{users[props.userId].rank}</Caption1> 
             </UserInfoWrapper>
         </ChattingProfileWrapper>
     );

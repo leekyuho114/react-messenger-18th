@@ -4,7 +4,7 @@ import { Body2 ,Caption2} from "../style/font";
 import { useState } from "react";
 import ChatBubble from "./ChatBubble";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { chatRoomListState, currentUserState } from "../recoil/state";
+import { chatRoomListState, loginUserState ,nowUserIdState} from "../recoil/state";
 interface ChattingProps{
     chatRoomId : number;
     isUser:boolean;
@@ -15,14 +15,18 @@ function ChattingFull(props:ChattingProps){
     const initializedChat = chatRoomList[props.chatRoomId].chatList;
     //현재 채팅방 chat list
     const [chatList, setChatList] = useState(initializedChat);
-    //현재 user id, chat의 userId와 같을 경우 true 넘김
-    const currentUser = useRecoilValue(currentUserState);
+    //현재 사용중인 user의 id
+    const nowUser = useRecoilValue(nowUserIdState);
     return(
         <ChattingFullWrapper>
             {
                 chatList.map((value, index)=>{
                     return(
-                        <ChatBubble isUser={chatList[index].userId===currentUser.userId} message={chatList[index].message}/>
+                        <ChatBubble 
+                            // 여기다가 isUser로 넘어온 boolean 값 && 연산하거나 해야될듯
+                            isMyChat={chatList[index].userId == nowUser} 
+                            message={chatList[index].message}
+                        />
                     )})
             }
         </ChattingFullWrapper>

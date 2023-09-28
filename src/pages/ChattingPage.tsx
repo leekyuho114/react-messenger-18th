@@ -3,15 +3,40 @@ import ChattingFull from "../components/ChattingFull";
 import ChattingInput from "../components/ChattingInput";
 import ChattingProfile from "../components/ChattingProfile";
 import styled from "styled-components";
-function ChattingPage(){
+import {useState} from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { chatRoomListState, nowUserIdState } from "../recoil/state";
+interface ChattingPageProps{
+    chatRoomId:number;
+}
+function ChattingPage(props:ChattingPageProps){
+    //chatting 전체 리스트
+    const chatRoomList = useRecoilValue(chatRoomListState);
+    //채팅방 사용자 2명
+    const roomUsers = chatRoomList[props.chatRoomId].userList;
+    //user switch 상태
+    const [switchUser,setSwitchUser] = useState(0);
+    //list 길이 체크해서 빈 채팅방 or 채팅있는 채팅방
+    const chatList = chatRoomList[props.chatRoomId].chatList;
+    //현재 사용중인 user의 id(login user 아님)
+    const [nowUserId, setNowUserId] = useRecoilState(nowUserIdState);
+    //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
+    const handleUserSwitch = ()=>{
+        if(switchUser === 0){
+            setSwitchUser(1);
+        }
+        else if(switchUser === 1){
+            setSwitchUser(0);
+        }
+        setNowUserId(roomUsers[switchUser]);
+    };
     return(
         <div className="pageWrapper">
-            
-            <ChattingProfile/>
+            <div onClick={handleUserSwitch}>
+                <ChattingProfile userId={nowUserId}/>
+            </div>
             <Divider/>
-            {/* 대화내용 있고 없음으로 예외처리 isUser 여기서 넘겨야함*/}
-            <ChattingFull chatRoomId={0} isUser={true}/>
-            {/* <ChattingEmpty/> */}
+            {chatList.length !== 0 ? <ChattingFull chatRoomId={props.chatRoomId} isUser={true}/>: <ChattingEmpty/>}
             <ChattingInput/>
         </div>
     );

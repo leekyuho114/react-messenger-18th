@@ -65,6 +65,7 @@ const StyledMore = styled(More)`
 const UserInfoWrapper = styled.div`
     position:absolute;
     left:7.06rem;
+    padding-top:0.2rem;
     display:flex;
     flex-direction:column;
     align-items: flex-start; /*왼쪽으로 정렬*/

@@ -37,12 +37,13 @@ function ChattingPage(props:ChattingPageProps){
             </div>
             <Divider/>
             {chatList.length !== 0 ? <ChattingFull chatRoomId={props.chatRoomId} isUser={true}/>: <ChattingEmpty/>}
-            <ChattingInput/>
+            <ChattingInput chatRoomId = {props.chatRoomId}/>
         </div>
     );
 }
 const Divider = styled.hr`
     border: 0.0625rem solid var(--gray-3);
-    margin : 0 0 0.3125rem 0;
+    margin : 0;
+    
 `;
 export default ChattingPage;

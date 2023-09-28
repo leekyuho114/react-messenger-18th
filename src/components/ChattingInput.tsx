@@ -3,9 +3,25 @@ import { ReactComponent as Plus } from "../assets/icons/Plus.svg";
 import { ReactComponent as Send } from "../assets/icons/Send.svg";
 import styled from "styled-components";
 import { Body2, Caption1 } from "../style/font";
-function ChattingInput(){
+import { chatListByIdState, chatRoomListState, nowUserIdState } from "../recoil/state";
+import { useRecoilState, useRecoilValue } from "recoil";
+interface ChattingInputProps{
+    chatRoomId : number;
+}
+interface ChatInfo{
+    chatId:number;
+    userId:number;
+    message:string;
+    date:string;
+}
+function ChattingInput(props : ChattingInputProps){
     const [typeMessage, setTypeMessage] = useState("메세지를 입력하세요");
-    const[input,setInput] = useState("");
+    const [input,setInput] = useState("");
+    //현재 사용 user ID
+    const nowUser = useRecoilValue(nowUserIdState);
+    //모든 채팅방 list
+    const [chatRoomList,setChatRoomList] = useRecoilState(chatRoomListState);
+    const [chatList, setChatList] = useRecoilState(chatListByIdState(props.chatRoomId));
     //메세지창에 메세지 없을 때만 placeholder 출력
     const handleFocus = ()=>{
         setTypeMessage("");
@@ -17,7 +33,18 @@ function ChattingInput(){
     }
     const handleSubmit = (e:any)=>{
         e.preventDefault();
-        setInput("");
+        if(input.trim() !== ""){
+            const chatInstance:ChatInfo = {
+                chatId:chatRoomList[props.chatRoomId].chatList.length,//현재 chatlength+1
+                userId:nowUser,
+                message: input,
+                date: String(new Date())
+            }
+            const copy = [...chatList];
+            copy.push(chatInstance);
+            setChatList(copy);
+            setInput("");   
+        }
     }
     const handleOnChange = (e:any)=>{
         setInput(e.target.value);
@@ -29,11 +56,12 @@ function ChattingInput(){
                 <input className="message-input" type = "text" 
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                value = {input}
                 onChange={handleOnChange}
                 ></input>
             </StyledForm>
             <Body2 className="placeHolder" color="var(--gray-4)">{typeMessage}</Body2>
-            <StyledSend/>
+            <StyledSend onClick={handleSubmit}/>
         </ChattingInputWrapper>
     );
 }
@@ -65,6 +93,11 @@ const StyledSend = styled(Send)`
     padding: 0.28125rem;
     top:1.47rem;
     right : 0.97rem;
+    cursor : pointer;
+    &:hover{
+        color : #FFFFFF;
+        filter : brightness(300%);
+    }
 `;
 const StyledForm = styled.form`
     .message-input{

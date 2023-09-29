@@ -46,6 +46,7 @@ const ChatBox = styled.div<{isMyChat:boolean}>`
     background-color : ${props => (props.isMyChat ? "var(--green)" : "var(--gray-1)")};
     max-width : 16.8125rem;
     width: fit-content;
+    word-break: break-all;
     border-radius: 1.5rem;
     margin : ${props => (props.isMyChat ? "0.625rem 1.25rem 0.625rem 0" : "0.625rem 0 0.625rem 1.25rem")};
 `;

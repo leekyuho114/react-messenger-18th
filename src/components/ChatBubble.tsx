@@ -42,11 +42,11 @@ const ChatBubbleContainer = styled.div<{isMyChat:boolean}>`
     }
 `;
 const ChatBox = styled.div<{isMyChat:boolean}>`
-    display: inline-block;
+    /*display: inline-block;*/
     background-color : ${props => (props.isMyChat ? "var(--green)" : "var(--gray-1)")};
     max-width : 16.8125rem;
     width: fit-content;
-    border-radius: 6.25rem;
+    border-radius: 1.5rem;
     margin : ${props => (props.isMyChat ? "0.625rem 1.25rem 0.625rem 0" : "0.625rem 0 0.625rem 1.25rem")};
 `;
 const ChatText = styled(Body2)<{isMyChat:boolean}>`

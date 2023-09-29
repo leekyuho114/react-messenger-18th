@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import "../style/color.css";
 import {Caption1} from "../style/font";
-import React, { useEffect, useRef} from "react";
+import { useEffect, useRef} from "react";
 import ChatBubble from "./ChatBubble";
 import { useRecoilValue } from "recoil";
 import { chatListByIdState, nowUserIdState} from "../recoil/state";

@@ -15,14 +15,15 @@ function ChattingFull(props:ChattingProps){
     const chatList = useRecoilValue(chatListByIdState(props.chatRoomId));
     //현재 사용중인 user의 id
     const nowUser = useRecoilValue(nowUserIdState);
-    
+
     //chat 추가 되면 scroll 밑으로
     const scrollRef = useRef<HTMLDivElement>(null);
+    //chat 추가되면 scroll 내리고, localstorage 저장
     useEffect(()=>{
         if(scrollRef.current){
             scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
         }
-
+        localStorage.setItem("chat"+String(props.chatRoomId),JSON.stringify(chatList));
     },[chatList]);
     return(
         <ChattingFullWrapper ref={scrollRef}>

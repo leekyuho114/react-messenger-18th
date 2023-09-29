@@ -33,4 +33,4 @@ export const chatListByIdState = atomFamily({
       const chatRoom = chatData.chattings.find(room => room.chatRoomId === chatRoomId);
       return chatRoom ? chatRoom.chatList : [];
     },
-  });
+});

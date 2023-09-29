@@ -35,7 +35,7 @@ function ChattingInput(props : ChattingInputProps){
         e.preventDefault();
         if(input.trim() !== ""){
             const chatInstance:ChatInfo = {
-                chatId:chatRoomList[props.chatRoomId].chatList.length,//현재 chatlength+1
+                chatId:chatList.length,//현재 chatlength+1
                 userId:nowUser,
                 message: input,
                 date: String(new Date())

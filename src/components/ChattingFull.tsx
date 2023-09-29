@@ -15,7 +15,6 @@ function ChattingFull(props:ChattingProps){
     const chatList = useRecoilValue(chatListByIdState(props.chatRoomId));
     //현재 사용중인 user의 id
     const nowUser = useRecoilValue(nowUserIdState);
-
     //chat 추가 되면 scroll 밑으로
     const scrollRef = useRef<HTMLDivElement>(null);
     //chat 추가되면 scroll 내리고, localstorage 저장
@@ -29,7 +28,7 @@ function ChattingFull(props:ChattingProps){
         <ChattingFullWrapper ref={scrollRef}>
             {
                 chatList.map((value, index)=>{
-                    //여기서 변화체크
+                    //하루넘어가면 날짜 출력
                     let dateChange:boolean = false;
                     const nowChatDate =new Date(chatList[index].date);
                     if(index === 0 ){

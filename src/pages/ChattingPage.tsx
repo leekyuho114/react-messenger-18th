@@ -1,5 +1,4 @@
-import ChattingEmpty from "../components/ChattingEmpty";
-import ChattingFull from "../components/ChattingFull";
+import ChattingRoom from "../components/ChattingRoom";
 import ChattingInput from "../components/ChattingInput";
 import ChattingProfile from "../components/ChattingProfile";
 import styled from "styled-components";
@@ -58,11 +57,8 @@ function ChattingPage(props: ChattingPageProps) {
         <ChattingProfile userId={nowUserId} />
       </div>
       <Divider />
-      {chatList.length !== 0 ? (
-        <ChattingFull chatRoomId={props.chatRoomId} isUser={true} />
-      ) : (
-        <ChattingEmpty />
-      )}
+      {/* props.chatRoomId */}
+      <ChattingRoom chatRoomId={props.chatRoomId} isUser={true} />
       <ChattingInput chatRoomId={props.chatRoomId} />
     </div>
   );

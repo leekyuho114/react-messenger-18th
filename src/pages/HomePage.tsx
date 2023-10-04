@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-const Home = () => {
+const HomePage = () => {
   const movePage = useNavigate();
   return (
     <div>
@@ -11,8 +11,15 @@ const Home = () => {
       >
         chat
       </button>
+      <button
+        onClick={() => {
+          movePage("/profile");
+        }}
+      >
+        profile
+      </button>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

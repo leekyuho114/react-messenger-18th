@@ -6,16 +6,18 @@ import { useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
 import { useRecoilValue } from "recoil";
 import { chatListByIdState, nowUserIdState } from "../recoil/state";
+import { checkDateChange, dateChangeFormat } from "../utils/dateForm";
 interface ChattingProps {
   chatRoomId: number;
   isUser: boolean;
 }
-const dayList = ["일", "월", "화", "수", "목", "금", "토"];
+// const dayList = ["일", "월", "화", "수", "목", "금", "토"];
 function ChattingRoom(props: ChattingProps) {
   // //현재 채팅방 chat list
   const chatList = useRecoilValue(chatListByIdState(props.chatRoomId));
   //현재 사용중인 user의 id
   const nowUser = useRecoilValue(nowUserIdState);
+  let prevDate: string = "";
   //chat 추가 되면 scroll 밑으로
   const scrollRef = useRef<HTMLDivElement>(null);
   //chat 추가되면 scroll 내리고, localstorage 저장
@@ -27,7 +29,6 @@ function ChattingRoom(props: ChattingProps) {
       "chat" + String(props.chatRoomId),
       JSON.stringify(chatList)
     );
-    console.log(chatList);
   }, [chatList]);
   if (chatList.length === 0) {
     //chatting 없을 시 empty 출력
@@ -46,25 +47,17 @@ function ChattingRoom(props: ChattingProps) {
       <ChattingFullWrapper ref={scrollRef}>
         {chatList.map((value, index) => {
           //하루넘어가면 날짜 출력
-          let dateChange: boolean = false;
-          const nowChatDate = new Date(chatList[index].date);
-          if (index === 0) {
-            dateChange = true;
-          } else {
-            const lastChatDate = new Date(chatList[index - 1].date);
-            if (lastChatDate.getDate() !== nowChatDate.getDate()) {
-              dateChange = true;
-            } else {
-              dateChange = false;
-            }
-          }
+          let dateChange: boolean = checkDateChange(
+            prevDate,
+            chatList[index].date
+          );
+          prevDate = chatList[index].date;
           return (
             <>
               <DateCaption>
                 {dateChange ? (
                   <Caption1 className="dateBox" color="var(--gray-7)">
-                    {nowChatDate.getFullYear()}년 {nowChatDate.getMonth() + 1}월{" "}
-                    {nowChatDate.getDate()}일 ({dayList[nowChatDate.getDay()]})
+                    {dateChangeFormat(prevDate)}
                   </Caption1>
                 ) : null}
               </DateCaption>

@@ -7,14 +7,20 @@ import "../style/color.css";
 import { usersState } from "../recoil/state";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 interface ChattingProfileProps {
   userId: number;
 }
 function ChattingProfile(props: ChattingProfileProps) {
   const users = useRecoilValue(usersState);
+  const navigate = useNavigate();
   return (
     <ChattingProfileWrapper>
-      <StyledBack />
+      <StyledBack
+        onClick={() => {
+          navigate("/chat");
+        }}
+      />
       <StyledFriends />
       <StyledCall />
       <StyledMore />
@@ -52,6 +58,10 @@ const StyledBack = styled(Back)`
   padding: 0.25rem 0.625rem;
   left: 0.625rem;
   top: 1.19rem;
+  &:hover {
+    color: #ffffff;
+    filter: brightness(300%);
+  }
 `;
 const StyledFriends = styled(Friends)`
   position: absolute;

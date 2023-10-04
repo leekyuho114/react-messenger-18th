@@ -3,7 +3,9 @@ import ChattingPage from "./pages/ChattingPage";
 import StatusBar from "./components/StatusBar";
 import HomeIndicator from "./components/HomeIndicator";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
+import ChatPage from "./pages/ChatPage";
+import ProfilePage from "./pages/ProfilePage";
 import "./style/color.css";
 function App() {
   return (
@@ -12,9 +14,10 @@ function App() {
       <div className="mainWrapper">
         <StatusBar />
         <Routes>
-          {/* 나중에 라우터 추가 or Router.js / 그리고 chatting room 여러개*/}
-          <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<ChattingPage chatRoomId={0} />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat/:id" element={<ChattingPage chatRoomId={0} />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         <HomeIndicator />
       </div>

@@ -9,6 +9,7 @@ import {
   chatRoomListState,
   nowUserIdState,
 } from "../recoil/state";
+import { useParams } from "react-router-dom";
 interface ChattingPageProps {
   chatRoomId: number;
 }
@@ -31,6 +32,7 @@ function ChattingPage(props: ChattingPageProps) {
   const initializeChat = localStorage.getItem(
     "chat" + String(props.chatRoomId)
   );
+  let { id } = useParams();
   useEffect(() => {
     if (initializeChat === null) {
       localStorage.setItem(
@@ -40,6 +42,7 @@ function ChattingPage(props: ChattingPageProps) {
     } else {
       setChatListById(JSON.parse(initializeChat));
     }
+    console.log(Number(id));
   }, []);
 
   //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
@@ -57,7 +60,6 @@ function ChattingPage(props: ChattingPageProps) {
         <ChattingProfile userId={nowUserId} />
       </div>
       <Divider />
-      {/* props.chatRoomId */}
       <ChattingRoom chatRoomId={props.chatRoomId} isUser={true} />
       <ChattingInput chatRoomId={props.chatRoomId} />
     </div>

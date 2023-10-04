@@ -1,23 +1,18 @@
 import styled from "styled-components";
 import "../style/color.css";
 import { Body2, Caption2 } from "../style/font";
+import { chatBubbleTime } from "../utils/dateForm";
 interface ChatBubbleProps {
   isMyChat: boolean;
   message: string;
   chatDate: string;
 }
 function ChatBubble(props: ChatBubbleProps) {
-  const date = new Date(props.chatDate);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const isAM = hours < 12 ? true : false;
-  const hours12 = hours < 13 ? hours : hours - 12;
   return (
     <ChatBubbleContainer isMyChat={props.isMyChat}>
       <div className="chatWrapper">
         <Caption2 className="writeTime" color="var(--gray-4)">
-          {isAM ? "오전" : "오후"} {hours12}:
-          {minutes < 10 ? "0" + minutes : minutes}
+          {chatBubbleTime(props.chatDate)}
         </Caption2>
         <ChatBox isMyChat={props.isMyChat}>
           <ChatText isMyChat={props.isMyChat}>{props.message}</ChatText>

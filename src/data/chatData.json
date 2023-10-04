@@ -1,45 +1,45 @@
 {
-    "chattings": [
-      {
-        "chatRoomId": 0,
-        "userList": [0,3],
-        "chatList":[
-            {
-                "chatId":0,
-                "userId":0,
-                "message" :"에어팟을 끼고 일해도 힘듭니다",
-                "date": "Thu Sep 28 2023 09:41:56 GMT+0900 (한국 표준시)"
-            },
-            {
-                "chatId":1,
-                "userId":3,
-                "message" :"앗 그렇군뇽 그냥 하세요",
-                "date": "Thu Sep 28 2023 10:31:42 GMT+0900 (한국 표준시)"
-            }
-        ]
-      },
-      {
-        "chatRoomId": 1,
-        "userList": [0,2],
-        "chatList":[
-            {
-                "chatId":0,
-                "userId":0,
-                "message" :"배고파요",
-                "date": "Fri May 5 2023 16:18:14 GMT+0900 (한국 표준시)"
-            },
-            {
-                "chatId":1,
-                "userId":2,
-                "message" :"네",
-                "date": "Fri May 5 2023 16:18:14 GMT+0900 (한국 표준시)"
-            }
-        ]
-      },
-      {
-        "chatRoomId": 2,
-        "userList": [0,4],
-        "chatList":[]
-      }
-    ]
-}  
+  "chattings": [
+    {
+      "chatRoomId": 0,
+      "userList": [0, 3],
+      "chatList": [
+        {
+          "chatId": 0,
+          "userId": 0,
+          "message": "에어팟을 끼고 일해도 힘듭니다",
+          "date": "Thu Sep 28 2023 09:41:56 GMT+0900 (한국 표준시)"
+        },
+        {
+          "chatId": 1,
+          "userId": 3,
+          "message": "앗 그렇군뇽 그냥 하세요",
+          "date": "Thu Sep 28 2023 10:31:42 GMT+0900 (한국 표준시)"
+        }
+      ]
+    },
+    {
+      "chatRoomId": 1,
+      "userList": [0, 2],
+      "chatList": [
+        {
+          "chatId": 0,
+          "userId": 0,
+          "message": "배고파요",
+          "date": "Wed Oct 4 2023 16:18:14 GMT+0900 (한국 표준시)"
+        },
+        {
+          "chatId": 1,
+          "userId": 2,
+          "message": "네",
+          "date": "Wed Oct 4 2023 16:18:16 GMT+0900 (한국 표준시)"
+        }
+      ]
+    },
+    {
+      "chatRoomId": 2,
+      "userList": [0, 4],
+      "chatList": []
+    }
+  ]
+}

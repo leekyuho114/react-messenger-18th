@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/chat" element={<ChatPage />} />
-          <Route path="/chat/:id" element={<ChattingPage chatRoomId={0} />} />
+          <Route path="/chat/:id" element={<ChattingPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         <HomeIndicator />

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { ReactComponent as Plus } from "../assets/icons/Plus.svg";
-import { ReactComponent as Send } from "../assets/icons/Send.svg";
+import { ReactComponent as Plus } from "../../assets/icons/Plus.svg";
+import { ReactComponent as Send } from "../../assets/icons/Send.svg";
 import styled from "styled-components";
-import { Body2 } from "../style/font";
+import { Body2 } from "../../style/font";
 import {
   chatListByIdState,
   chatRoomListState,
   nowUserIdState,
-} from "../recoil/state";
+} from "../../recoil/state";
 import { useRecoilState, useRecoilValue } from "recoil";
 interface ChattingInputProps {
   chatRoomId: number;
@@ -17,14 +17,13 @@ interface ChatInfo {
   userId: number;
   message: string;
   date: string;
+  like: number;
 }
 function ChattingInput(props: ChattingInputProps) {
   const [typeMessage, setTypeMessage] = useState("메세지를 입력하세요");
   const [input, setInput] = useState("");
   //현재 사용 user ID
   const nowUser = useRecoilValue(nowUserIdState);
-  //모든 채팅방 list
-  const [chatRoomList, setChatRoomList] = useRecoilState(chatRoomListState);
   const [chatList, setChatList] = useRecoilState(
     chatListByIdState(props.chatRoomId)
   );
@@ -45,6 +44,7 @@ function ChattingInput(props: ChattingInputProps) {
         userId: nowUser,
         message: input,
         date: String(new Date()),
+        like: 0,
       };
       const copy = [...chatList];
       copy.push(chatInstance);

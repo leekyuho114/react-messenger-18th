@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import "../style/color.css";
-import { Body2, Caption2 } from "../style/font";
-import { chatBubbleTime } from "../utils/dateForm";
+import "../../style/color.css";
+import { Body2, Caption2 } from "../../style/font";
+import { chatBubbleTime } from "../../utils/dateForm";
 interface ChatBubbleProps {
   isMyChat: boolean;
   message: string;

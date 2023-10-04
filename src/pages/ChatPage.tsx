@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import { chatRoomListState } from "../recoil/state";
 const ChatPage = () => {
   const movePage = useNavigate();
-  const roomList = useRecoilState(chatRoomListState);
+  //const roomList = useRecoilState(chatRoomListState);
   return (
     <div>
       Chat

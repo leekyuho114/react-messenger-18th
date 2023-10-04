@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import "../style/color.css";
-import { ReactComponent as Chat } from "../assets/icons/Chat.svg";
-import { Caption1, Body2 } from "../style/font";
+import "../../style/color.css";
+import { ReactComponent as Chat } from "../../assets/icons/Chat.svg";
+import { Caption1, Body2 } from "../../style/font";
 import { useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
 import { useRecoilValue } from "recoil";
-import { chatListByIdState, nowUserIdState } from "../recoil/state";
-import { checkDateChange, dateChangeFormat } from "../utils/dateForm";
+import { chatListByIdState, nowUserIdState } from "../../recoil/state";
+import { checkDateChange, dateChangeFormat } from "../../utils/dateForm";
 interface ChattingProps {
   chatRoomId: number;
   isUser: boolean;

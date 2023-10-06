@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { chatRoomListState } from "../recoil/state";
+import ChatCard from "../components/chat/ChatCard";
 const ChatPage = () => {
   const movePage = useNavigate();
   //const roomList = useRecoilState(chatRoomListState);
@@ -21,6 +22,7 @@ const ChatPage = () => {
       >
         1
       </button>
+      <ChatCard />
     </div>
   );
 };

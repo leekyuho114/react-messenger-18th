@@ -7,14 +7,14 @@
         {
           "chatId": 0,
           "userId": 0,
-          "message": "에어팟을 끼고 일해도 힘듭니다",
+          "message": "오늘 회의가 다음주로 미뤄졌다고 하네요.",
           "date": "Thu Sep 28 2023 09:41:56 GMT+0900 (한국 표준시)",
           "like": 0
         },
         {
           "chatId": 1,
           "userId": 3,
-          "message": "앗 그렇군뇽 그냥 하세요",
+          "message": "그럼 오늘은 일찍 퇴근합시다",
           "date": "Thu Sep 28 2023 10:31:42 GMT+0900 (한국 표준시)",
           "like": 0
         }

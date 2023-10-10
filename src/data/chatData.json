@@ -26,15 +26,15 @@
       "chatList": [
         {
           "chatId": 0,
-          "userId": 0,
-          "message": "배고파요",
+          "userId": 2,
+          "message": "회의 때 공유드린 파일 확인해보셨나요?",
           "date": "Wed Oct 4 2023 16:18:14 GMT+0900 (한국 표준시)",
           "like": 0
         },
         {
           "chatId": 1,
-          "userId": 2,
-          "message": "네",
+          "userId": 0,
+          "message": "네 확인했습니다. 감사합니다!",
           "date": "Wed Oct 4 2023 16:18:16 GMT+0900 (한국 표준시)",
           "like": 0
         }
@@ -43,7 +43,22 @@
     {
       "chatRoomId": 2,
       "userList": [0, 4],
-      "chatList": []
+      "chatList": [
+        {
+          "chatId": 0,
+          "userId": 0,
+          "message": "안녕하세요",
+          "date": "Wed Oct 6 2023 16:18:14 GMT+0900 (한국 표준시)",
+          "like": 0
+        },
+        {
+          "chatId": 1,
+          "userId": 2,
+          "message": "고생하셨습니다. 부장님도 주말 잘 보내세요.",
+          "date": "Wed Oct 7 2023 16:18:16 GMT+0900 (한국 표준시)",
+          "like": 0
+        }
+      ]
     }
   ]
 }

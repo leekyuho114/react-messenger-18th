@@ -2,22 +2,14 @@ import styled from "styled-components";
 import ChatCard from "./ChatCard";
 import { useRecoilValue } from "recoil";
 import { chatRoomListState } from "../../recoil/state";
-
+import { useNavigate } from "react-router-dom";
 const ChatCardList = () => {
   const chatList = useRecoilValue(chatRoomListState);
   return (
     <ChatCardListWrapper>
-      {
-        //chatList.
-        //<ChatCard />
-      }
-      <ChatCard />
-      <ChatCard />
-      <ChatCard />
-      <ChatCard />
-      <ChatCard />
-      <ChatCard />
-      <ChatCard />
+      {chatList.map((value, index) => {
+        return <ChatCard />;
+      })}
     </ChatCardListWrapper>
   );
 };

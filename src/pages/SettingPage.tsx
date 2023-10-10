@@ -1,12 +1,12 @@
 import Footer from "../components/Footer";
 import HomeIndicator from "../components/HomeIndicator";
-const ProfilePage = () => {
+const SettingPage = () => {
   return (
     <div className="pageWrapper">
-      <Footer page="people" />
+      <Footer page="setting" />
       <HomeIndicator color="var(--gray-1)" />
     </div>
   );
 };
 
-export default ProfilePage;
+export default SettingPage;

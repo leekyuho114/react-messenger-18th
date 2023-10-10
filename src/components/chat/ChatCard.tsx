@@ -1,20 +1,24 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
 import { Body2, Caption1, Caption2, Heading2 } from "../../style/font";
-//chatpage 에서 chatlist가져오고, 넘기기. 넘기면 room에 따라서 chat 미리보기 card에 props 넘기고, 마지막 chat시간 내용
-//도 알아야함
 const ChatCard = () => {
+  const navigate = useNavigate();
   return (
-    <ChatCardWrapper>
+    <ChatCardWrapper
+      onClick={() => {
+        navigate("/chat/0");
+      }}
+    >
       <ChatContentWrapper>
-        <FriendsIcon></FriendsIcon>
+        <FriendsIcon />
         <ChatContent>
           <div className="user-info">
             <Heading2 color="var(--gray-7)">신현재</Heading2>
             <Caption1 color="var(--green)">근무 중</Caption1>
           </div>
           <Body2 className="last-chat" color="var(--gray-4)">
-            즐거운 저녁되세요
+            회의 때 공유드린 파일 확인해보셨나요?
           </Body2>
         </ChatContent>
       </ChatContentWrapper>
@@ -33,6 +37,7 @@ const ChatCardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
   .last-chat-time {
     position: absolute;
     top: 1.25rem;

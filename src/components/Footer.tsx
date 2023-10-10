@@ -34,7 +34,7 @@ const Footer = ({ page }: FooterProps) => {
     <FooterWrapper>
       <PeopleIcon
         onClick={() => {
-          navigate("/profile");
+          navigate("/");
         }}
         page={page}
       />
@@ -44,7 +44,12 @@ const Footer = ({ page }: FooterProps) => {
         }}
         page={page}
       />
-      <SettingIcon page={page} />
+      <SettingIcon
+        onClick={() => {
+          navigate("/setting");
+        }}
+        page={page}
+      />
     </FooterWrapper>
   );
 };

@@ -14,13 +14,11 @@ function App() {
       <div className="mainWrapper">
         <StatusBar />
         <Routes>
-          {/* <Route path="/" element={<HomePage />} />
-          <Route path="/chat" element={<ChatPage />} /> */}
-          {/* <Route path="/chat/:id" element={<ChattingPage />} /> */}
-          <Route path="/:id" element={<ChattingPage />} />
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat/:id" element={<ChattingPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
-        <HomeIndicator />
       </div>
     </>
   );

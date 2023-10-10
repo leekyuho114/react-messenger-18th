@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 const ProfilePage = () => {
-  const movePage = useNavigate();
   return (
     <div>
       <button>Profile</button>
+      <Footer page="people" />
     </div>
   );
 };

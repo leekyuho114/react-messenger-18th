@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import "../../style/color.css";
-import { ReactComponent as Chat } from "../../assets/icons/Chat.svg";
+import { ReactComponent as EmptyChat } from "../../assets/icons/EmptyChat.svg";
 import { Caption1, Body2 } from "../../style/font";
 import { useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
@@ -9,9 +9,7 @@ import { chatListByIdState, nowUserIdState } from "../../recoil/state";
 import { checkDateChange, dateChangeFormat } from "../../utils/dateForm";
 interface ChattingProps {
   chatRoomId: number;
-  isUser: boolean;
 }
-// const dayList = ["일", "월", "화", "수", "목", "금", "토"];
 function ChattingRoom(props: ChattingProps) {
   // //현재 채팅방 chat list
   const chatList = useRecoilValue(chatListByIdState(props.chatRoomId));
@@ -74,7 +72,6 @@ function ChattingRoom(props: ChattingProps) {
   }
 }
 const ChattingEmptyWrapper = styled.div`
-  width: 23.4375rem;
   height: 37.69rem;
   position: relative;
   .defaultChat {
@@ -84,7 +81,7 @@ const ChattingEmptyWrapper = styled.div`
     top: 17.935rem;
   }
 `;
-const StyledChat = styled(Chat)`
+const StyledChat = styled(EmptyChat)`
   position: absolute;
   width: 1.9375rem;
   height: 1.9375rem;
@@ -94,7 +91,6 @@ const StyledChat = styled(Chat)`
 const ChattingFullWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 23.4375rem;
   height: 37.69rem;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */

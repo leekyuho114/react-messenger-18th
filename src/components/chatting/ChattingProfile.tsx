@@ -26,7 +26,7 @@ function ChattingProfile(props: ChattingProfileProps) {
       <StyledMore />
       <UserInfoWrapper>
         <UserWrapper>
-          <Heading2>{users[props.userId].name}</Heading2>
+          <Heading2 color="var(--gray-7)">{users[props.userId].name}</Heading2>
           <Caption1
             color={
               users[props.userId].isWorking === "근무 중"

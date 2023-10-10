@@ -10,6 +10,7 @@ import {
   nowUserIdState,
 } from "../recoil/state";
 import { useParams } from "react-router-dom";
+import HomeIndicator from "../components/HomeIndicator";
 
 function ChattingPage() {
   let { id } = useParams();
@@ -38,7 +39,8 @@ function ChattingPage() {
     } else {
       setChatListById(JSON.parse(initializeChat));
     }
-    console.log(Number(id));
+    //페이지가 불릴 때, 현재 user도 재설정
+    setNowUserId(roomUsers[switchUser]);
   }, []);
 
   //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
@@ -56,13 +58,17 @@ function ChattingPage() {
         <ChattingProfile userId={nowUserId} />
       </div>
       <Divider />
-      <ChattingRoom chatRoomId={Number(id)} isUser={true} />
+      <ChattingRoom chatRoomId={Number(id)} />
       <ChattingInput chatRoomId={Number(id)} />
+      <HomeIndicator color="var(--black)" />
     </div>
   );
 }
 const Divider = styled.hr`
-  border: 0.0625rem solid var(--gray-3);
-  margin: 0;
+  background-color = var(--black);
+  border : none;
+  border-bottom: solid 0.0625rem var(--gray-3);
+  margin-top: 0.25rem;
+  margin-bottom :0rem;
 `;
 export default ChattingPage;

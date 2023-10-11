@@ -2,20 +2,37 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
 import { Body2, Caption1, Caption2, Heading2 } from "../../style/font";
-const ChatCard = () => {
+import { useRecoilValue } from "recoil";
+import { chatRoomListState, usersState } from "../../recoil/state";
+interface ChatCardProps {
+  index: number;
+}
+const ChatCard = ({ index }: ChatCardProps) => {
   const navigate = useNavigate();
+  const chattings = useRecoilValue(chatRoomListState);
+  const users = useRecoilValue(usersState);
+  //해당하는 채팅방의 상대방 userid
+  const userId = chattings[index].userList[1];
   return (
     <ChatCardWrapper
       onClick={() => {
-        navigate("/chat/0");
+        navigate("/chat/" + index);
       }}
     >
       <ChatContentWrapper>
         <FriendsIcon />
         <ChatContent>
           <div className="user-info">
-            <Heading2 color="var(--gray-7)">신현재</Heading2>
-            <Caption1 color="var(--green)">근무 중</Caption1>
+            <Heading2 color="var(--gray-7)">{users[userId].name}</Heading2>
+            {users[userId].isWorking === "근무 중" ? (
+              <Caption1 color="var(--green)">
+                {users[userId].isWorking}
+              </Caption1>
+            ) : (
+              <Caption1 color="var(--gray-4)">
+                {users[userId].isWorking}
+              </Caption1>
+            )}
           </div>
           <Body2 className="last-chat" color="var(--gray-4)">
             회의 때 공유드린 파일 확인해보셨나요?

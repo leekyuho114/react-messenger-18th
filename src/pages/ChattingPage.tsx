@@ -13,6 +13,7 @@ import { useParams } from "react-router-dom";
 import HomeIndicator from "../components/HomeIndicator";
 
 function ChattingPage() {
+  //id받아서 해당 id에 해당하는 chat 찾기
   let { id } = useParams();
   //chatting 전체 리스트
   const chatRoomList = useRecoilValue(chatRoomListState);

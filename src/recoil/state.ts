@@ -21,12 +21,12 @@ export const usersState = atom({
   key: "usersState",
   default: userData.users,
 });
-
+//채팅 외의 Room에 대한 정보에 사용
 export const chatRoomListState = atom({
   key: "chatRoomListState",
   default: chatData.chattings,
 });
-
+//chatting 출력에 사용
 export const chatListByIdState = atomFamily({
   key: "chatListByIdState",
   default: (chatRoomId: number) => {

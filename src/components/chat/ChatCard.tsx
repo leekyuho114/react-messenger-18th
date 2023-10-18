@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
 import { Body2, Caption1, Caption2, Heading2 } from "../../style/font";
 import { useRecoilValue } from "recoil";
-import { chatRoomListState, usersState } from "../../recoil/state";
+import {
+  chatListByIdState,
+  chatRoomListState,
+  usersState,
+} from "../../recoil/state";
+//chatListById 값 새로 하나 들어오면 리렌더,그리고 채팅방 최신순 순서 또한 set
 interface ChatCardProps {
   index: number;
 }
@@ -11,6 +16,9 @@ const ChatCard = ({ index }: ChatCardProps) => {
   const navigate = useNavigate();
   const chattings = useRecoilValue(chatRoomListState);
   const users = useRecoilValue(usersState);
+  //마지막 chatting
+  const chatListById = useRecoilValue(chatListByIdState(index));
+  const lastChat = chatListById[chatListById.length - 1];
   //해당하는 채팅방의 상대방 userid
   const userId = chattings[index].userList[1];
   return (
@@ -35,12 +43,13 @@ const ChatCard = ({ index }: ChatCardProps) => {
             )}
           </div>
           <Body2 className="last-chat" color="var(--gray-4)">
-            회의 때 공유드린 파일 확인해보셨나요?
+            {lastChat.message}
           </Body2>
         </ChatContent>
       </ChatContentWrapper>
       <Caption2 className="last-chat-time" color="var(--gray-4)">
         오전 10:24
+        {/* {lastChat.date} */}
       </Caption2>
     </ChatCardWrapper>
   );

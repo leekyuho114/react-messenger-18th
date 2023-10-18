@@ -8,6 +8,7 @@ import {
   chatRoomListState,
   usersState,
 } from "../../recoil/state";
+import { chatCardDateFormat } from "../../utils/dateForm";
 //chatListById 값 새로 하나 들어오면 리렌더,그리고 채팅방 최신순 순서 또한 set
 interface ChatCardProps {
   index: number;
@@ -48,8 +49,7 @@ const ChatCard = ({ index }: ChatCardProps) => {
         </ChatContent>
       </ChatContentWrapper>
       <Caption2 className="last-chat-time" color="var(--gray-4)">
-        오전 10:24
-        {/* {lastChat.date} */}
+        {chatCardDateFormat(lastChat.date)}
       </Caption2>
     </ChatCardWrapper>
   );

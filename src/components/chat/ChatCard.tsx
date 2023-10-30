@@ -9,7 +9,6 @@ import {
   usersState,
 } from "../../recoil/state";
 import { chatCardDateFormat } from "../../utils/dateForm";
-//chatListById 값 새로 하나 들어오면 리렌더,그리고 채팅방 최신순 순서 또한 set
 interface ChatCardProps {
   index: number;
 }

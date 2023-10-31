@@ -46,16 +46,6 @@ function ChattingPage() {
     setNowUserId(roomUsers[0]);
     setTargetUserId(roomUsers[1]);
   }, []);
-  // useEffect(()=>{
-  //   setTargetUserId(roomUsers[switchUser]);
-  //   if (switchUser === 0) {
-  //     setSwitchUser(1);
-  //   } else if (switchUser === 1) {
-  //     setSwitchUser(0);
-  //   }
-  //   setNowUserId(roomUsers[switchUser]);
-  // }, [switchUser])
-  //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
   const handleUserSwitch = () => {
     if (switchUser === 0) {
       setTargetUserId(roomUsers[0]);
@@ -66,8 +56,6 @@ function ChattingPage() {
       setNowUserId(roomUsers[0]);
       setSwitchUser(0);
     }
-    //setNowUserId(roomUsers[switchUser]);
-    console.log(targetUserId, nowUserId);
   };
   return (
     <div className="pageWrapper">

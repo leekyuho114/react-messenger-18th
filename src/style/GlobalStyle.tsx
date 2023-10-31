@@ -30,6 +30,6 @@ const GlobalStyle = createGlobalStyle`
         height: 47.8125rem;
         position : relative;
     }
+  }
 `;
-
 export default GlobalStyle;

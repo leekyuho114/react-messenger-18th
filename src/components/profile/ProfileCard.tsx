@@ -1,19 +1,28 @@
 import styled from "styled-components";
-//state
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { friendsState, greenDotState } from "../../recoil/state";
-import { useState } from "react";
+//react, recoil
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  chatRoomListState,
+  friendsState,
+  greenDotState,
+} from "../../recoil/state";
+import { useRef, useState } from "react";
 //icons, fonts
 import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
 import { ReactComponent as Next } from "../../assets/icons/Next.svg";
 import { ReactComponent as Star } from "../../assets/icons/Star.svg";
 import { Body2, Caption1, Heading2 } from "../../style/font";
+import { useNavigate } from "react-router-dom";
 interface ProfileCardProps {
   userIndex: number;
   favorite: boolean; // 현재 페이지 상태
 }
 const ProfileCard = (props: ProfileCardProps) => {
+  const navigate = useNavigate();
+  const chatList = useRecoilValue(chatRoomListState);
+  //사용자 제외 친구 list
   const [users, setUsers] = useRecoilState(friendsState);
+  //즐겨찾기 추가 시 dot
   const setGreenDot = useSetRecoilState(greenDotState);
   //favorite 버튼 toggle
   const [favoriteToggle, setFavoriteToggle] = useState(false);
@@ -22,6 +31,7 @@ const ProfileCard = (props: ProfileCardProps) => {
     e.preventDefault();
     setFavoriteToggle(!favoriteToggle);
   };
+  //즐겨찾기 click
   const handleFavoriteClick = () => {
     const copy = [...users];
     if (copy[props.userIndex].favorite === 0) {
@@ -42,6 +52,19 @@ const ProfileCard = (props: ProfileCardProps) => {
     setUsers(copy);
     setFavoriteToggle(!favoriteToggle);
   };
+  //navigate
+  //friend index에 해당하는 채팅으로 navigate
+  const handleNavigate = () => {
+    const chatNumber = chatList.findIndex(
+      (chatRoom) => chatRoom.userList[1] === props.userIndex
+    );
+    if (chatNumber === -1) {
+      alert("채팅 없음 미구현");
+    } else {
+      navigate("/chat/" + chatNumber);
+    }
+  };
+
   return (
     <ProfileCardWrapper onContextMenu={handleOnContextMenu}>
       <FavoriteButton
@@ -72,7 +95,9 @@ const ProfileCard = (props: ProfileCardProps) => {
             {users[props.userIndex].company}/{users[props.userIndex].department}
             /{users[props.userIndex].rank}
           </Body2>
-          {favoriteToggle === false ? <NextIcon /> : null}
+          {favoriteToggle === false ? (
+            <NextIcon onClick={handleNavigate} />
+          ) : null}
         </ProfileContent>
       </ProfileContentWrapper>
     </ProfileCardWrapper>
@@ -118,6 +143,7 @@ const NextIcon = styled(Next)`
   top: 1rem;
   width: 0.625rem;
   height: 1.25rem;
+  cursor: pointer;
 `;
 const StarIcon = styled(Star)`
   width: 1.25rem;

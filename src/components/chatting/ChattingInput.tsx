@@ -77,10 +77,9 @@ function ChattingInput(props: ChattingInputProps) {
 }
 const ChattingInputWrapper = styled.div`
   width: 23.4375rem;
-  height: 3.69rem;
+  height: 3.6875rem;
   position: relative;
-  position: absolute;
-  top: 42rem;
+
   .placeHolder {
     pointer-events: none; /*input이 묻히기 때문에 제외*/
     position: absolute;
@@ -121,7 +120,7 @@ const StyledForm = styled.form`
     border-radius: 6.25rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    font-family: "Pretendard-Regular"; /*globalstyle 왜 적용안되는지?*/
+    font-family: "Pretendard-Regular";
     color: var(--gray-7);
     font-size: 1.125rem;
     font-style: normal;

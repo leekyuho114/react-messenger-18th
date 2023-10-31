@@ -1,15 +1,19 @@
 import { ReactComponent as HomeBar } from "../assets/iphone/HomeBar.svg";
 import styled from "styled-components";
-function HomeIndicator() {
+interface HomeIndicatorProps {
+  color: string;
+}
+const HomeIndicator = ({ color }: HomeIndicatorProps) => {
   return (
-    <HomeBarWrapper>
+    <HomeBarWrapper color={color}>
       <StyledHomeBar />
     </HomeBarWrapper>
   );
-}
+};
 const HomeBarWrapper = styled.div`
-  width: 23.4375rem;
   height: 2.125rem;
+  background-color: ${(props) => props.color || "var(--black)"};
+  border-radius: 0 0 1.25rem 1.25rem;
 `;
 const StyledHomeBar = styled(HomeBar)`
   width: 8.375rem;

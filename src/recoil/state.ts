@@ -21,12 +21,12 @@ export const usersState = atom({
   key: "usersState",
   default: userData.users,
 });
-
+//채팅 외의 Room에 대한 정보에 사용
 export const chatRoomListState = atom({
   key: "chatRoomListState",
   default: chatData.chattings,
 });
-
+//chatting 출력에 사용
 export const chatListByIdState = atomFamily({
   key: "chatListByIdState",
   default: (chatRoomId: number) => {
@@ -35,4 +35,9 @@ export const chatListByIdState = atomFamily({
     );
     return chatRoom ? chatRoom.chatList : [];
   },
+});
+//즐겨찾기 추가 시 초록점 생성 toggle
+export const greenDotState = atom({
+  key: "greenDotState",
+  default: false,
 });

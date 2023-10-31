@@ -17,7 +17,7 @@ function StatusBar() {
 }
 const StatusBarWrapper = styled.div`
   width: 23.4375rem;
-  height: 2.9375rem;
+  height: 2.938rem;
   position: relative;
 `;
 

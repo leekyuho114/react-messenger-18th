@@ -10,8 +10,10 @@ import {
   nowUserIdState,
 } from "../recoil/state";
 import { useParams } from "react-router-dom";
+import HomeIndicator from "../components/HomeIndicator";
 
 function ChattingPage() {
+  //id받아서 해당 id에 해당하는 chat 찾기
   let { id } = useParams();
   //chatting 전체 리스트
   const chatRoomList = useRecoilValue(chatRoomListState);
@@ -21,6 +23,8 @@ function ChattingPage() {
   );
   //채팅방 사용자 2명
   const roomUsers = chatRoomList[Number(id)].userList;
+  //상대방 user
+  const [targetUserId, setTargetUserId] = useState(roomUsers[1]);
   //user switch 상태
   const [switchUser, setSwitchUser] = useState(0);
   //list 길이 체크해서 빈 채팅방 or 채팅있는 채팅방
@@ -38,31 +42,50 @@ function ChattingPage() {
     } else {
       setChatListById(JSON.parse(initializeChat));
     }
-    console.log(Number(id));
+    //페이지가 불릴 때, 현재 user도 재설정
+    setNowUserId(roomUsers[0]);
+    setTargetUserId(roomUsers[1]);
   }, []);
-
+  // useEffect(()=>{
+  //   setTargetUserId(roomUsers[switchUser]);
+  //   if (switchUser === 0) {
+  //     setSwitchUser(1);
+  //   } else if (switchUser === 1) {
+  //     setSwitchUser(0);
+  //   }
+  //   setNowUserId(roomUsers[switchUser]);
+  // }, [switchUser])
   //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
   const handleUserSwitch = () => {
     if (switchUser === 0) {
+      setTargetUserId(roomUsers[0]);
+      setNowUserId(roomUsers[1]);
       setSwitchUser(1);
     } else if (switchUser === 1) {
+      setTargetUserId(roomUsers[1]);
+      setNowUserId(roomUsers[0]);
       setSwitchUser(0);
     }
-    setNowUserId(roomUsers[switchUser]);
+    //setNowUserId(roomUsers[switchUser]);
+    console.log(targetUserId, nowUserId);
   };
   return (
     <div className="pageWrapper">
       <div onClick={handleUserSwitch}>
-        <ChattingProfile userId={nowUserId} />
+        <ChattingProfile targetId={targetUserId} />
       </div>
       <Divider />
-      <ChattingRoom chatRoomId={Number(id)} isUser={true} />
+      <ChattingRoom chatRoomId={Number(id)} />
       <ChattingInput chatRoomId={Number(id)} />
+      <HomeIndicator color="var(--black)" />
     </div>
   );
 }
 const Divider = styled.hr`
-  border: 0.0625rem solid var(--gray-3);
-  margin: 0;
+  background-color = var(--black);
+  border : none;
+  border-bottom: solid 0.0625rem var(--gray-3);
+  margin-top: 0.25rem;
+  margin-bottom :0rem;
 `;
 export default ChattingPage;

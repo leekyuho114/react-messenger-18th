@@ -1,28 +1,17 @@
-import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { chatRoomListState } from "../recoil/state";
-import ChatCard from "../components/chat/ChatCard";
+import ChatSearch from "../components/chat/ChatSearch";
+import ChatHeader from "../components/chat/ChatHeader";
+import ChatCardList from "../components/chat/ChatCardList";
+import HomeIndicator from "../components/HomeIndicator";
+import Footer from "../components/Footer";
 const ChatPage = () => {
-  const movePage = useNavigate();
   //const roomList = useRecoilState(chatRoomListState);
   return (
-    <div>
-      Chat
-      <button
-        onClick={() => {
-          movePage("/chat/0");
-        }}
-      >
-        0
-      </button>
-      <button
-        onClick={() => {
-          movePage("/chat/1");
-        }}
-      >
-        1
-      </button>
-      <ChatCard />
+    <div className="pageWrapper">
+      <ChatHeader />
+      <ChatSearch />
+      <ChatCardList />
+      <Footer page="chat" />
+      <HomeIndicator color="var(--gray-1)" />
     </div>
   );
 };

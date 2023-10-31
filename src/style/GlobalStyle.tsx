@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         font-family: 'Pretendard-Regular';
+        @media (max-width: 768px) {
+            transform: scale(0.9);
+            transform-origin: center;
+        }
     }
     input{
         outline: none;
@@ -29,12 +33,6 @@ const GlobalStyle = createGlobalStyle`
         width: 23.4375rem;
         height: 47.8125rem;
         position : relative;
-    }
-  }
-  @media (max-width: 768px) { /* 모바일 화면 크기에 따라 조정 */
-    body {
-      transform: scale(0.9); /* 모바일 화면에서 90% 크기로 축소 */
-      transform-origin: center;
     }
   }
 `;

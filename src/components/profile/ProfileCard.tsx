@@ -56,8 +56,9 @@ const ProfileCard = (props: ProfileCardProps) => {
   //friend index에 해당하는 채팅으로 navigate
   const handleNavigate = () => {
     const chatNumber = chatList.findIndex(
-      (chatRoom) => chatRoom.userList[1] === props.userIndex
+      (chatRoom) => chatRoom.userList[1] === props.userIndex + 1
     );
+    console.log(chatNumber);
     if (chatNumber === -1) {
       alert("채팅 없음 미구현");
     } else {

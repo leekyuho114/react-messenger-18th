@@ -56,7 +56,7 @@ const ProfileLogoWrapper = styled.div`
 `;
 const ProfileNav = styled.div`
   display: flex;
-  gap: 1.38rem;
+  gap: 1rem;
   padding-left: 1.34rem;
   height: 2.5625rem;
   border-bottom: solid 0.0625rem var(--gray-3);
@@ -69,6 +69,7 @@ const NavAll = styled.div<{ favorite: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 const NavFavorite = styled.div<{ favorite: boolean }>`
   width: 4.75rem;
@@ -78,5 +79,5 @@ const NavFavorite = styled.div<{ favorite: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
-// border-bottom: solid 0.0625rem var(--gray-3);

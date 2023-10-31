@@ -66,6 +66,7 @@ const PeopleIcon = styled(People)<FooterProps>`
   path {
     ${(props) => getPeopleIconStyles(props.page)}
   }
+  cursor: pointer;
 `;
 
 const ChatIcon = styled(Chat)<FooterProps>`
@@ -76,6 +77,7 @@ const ChatIcon = styled(Chat)<FooterProps>`
   path {
     ${(props) => getChatIconStyles(props.page)}
   }
+  cursor: pointer;
 `;
 const SettingIcon = styled(Setting)<FooterProps>`
   padding: 0.188rem 0.216rem;
@@ -85,5 +87,6 @@ const SettingIcon = styled(Setting)<FooterProps>`
   path {
     ${(props) => getSettingIconStyles(props.page)}
   }
+  cursor: pointer;
 `;
 export default Footer;

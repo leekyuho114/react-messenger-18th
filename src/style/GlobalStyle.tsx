@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 1.25rem;
         background-color : var(--black);
     }
-    .pageWrapper{ /*pageWrapper는 header footer 제외 높이*/
+    .pageWrapper{ /*pageWrapper는 status bar footer 제외 높이*/
         width: 23.4375rem;
         height: 47.8125rem;
         position : relative;

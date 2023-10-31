@@ -21,16 +21,24 @@ const GlobalStyle = createGlobalStyle`
     }
     .mainWrapper{
         width: 23.4375rem;
-        height: 40.75rem;
+        height: 50.75rem;
         border-radius: 1.25rem;
         background-color : var(--black);
     }
     .pageWrapper{ /*pageWrapper는 status bar footer 제외 높이*/
         width: 23.4375rem;
-        height: 37.8125rem;
+        height: 47.8125rem;
         position : relative;
     }
   }
+  @media (max-width: 768px) {
+    .mainWrapper {
+      height: 42.75rem;
+    }
 
+    .pageWrapper {
+      height: 39.8125rem;
+    }
+  }
 `;
 export default GlobalStyle;

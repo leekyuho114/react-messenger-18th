@@ -31,14 +31,12 @@ const GlobalStyle = createGlobalStyle`
         position : relative;
     }
   }
-  @media (max-width: 768px) {
-    .mainWrapper {
-      height: 42.75rem;
-    }
-
-    .pageWrapper {
-      height: 39.8125rem;
+  @media (max-width: 768px) { /* 모바일 화면 크기에 따라 조정 */
+    body {
+      transform: scale(0.9); /* 모바일 화면에서 90% 크기로 축소 */
+      transform-origin: center;
     }
   }
 `;
+
 export default GlobalStyle;

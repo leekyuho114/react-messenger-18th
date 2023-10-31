@@ -23,6 +23,8 @@ function ChattingPage() {
   );
   //채팅방 사용자 2명
   const roomUsers = chatRoomList[Number(id)].userList;
+  //상대방 user
+  const [targetUserId, setTargetUserId] = useState(roomUsers[1]);
   //user switch 상태
   const [switchUser, setSwitchUser] = useState(0);
   //list 길이 체크해서 빈 채팅방 or 채팅있는 채팅방
@@ -41,22 +43,36 @@ function ChattingPage() {
       setChatListById(JSON.parse(initializeChat));
     }
     //페이지가 불릴 때, 현재 user도 재설정
-    setNowUserId(roomUsers[switchUser]);
+    setNowUserId(roomUsers[0]);
+    setTargetUserId(roomUsers[1]);
   }, []);
-
+  // useEffect(()=>{
+  //   setTargetUserId(roomUsers[switchUser]);
+  //   if (switchUser === 0) {
+  //     setSwitchUser(1);
+  //   } else if (switchUser === 1) {
+  //     setSwitchUser(0);
+  //   }
+  //   setNowUserId(roomUsers[switchUser]);
+  // }, [switchUser])
   //0,1로 switch 하면서 채팅방 userlist의 0,1인덱스의 user로 전환
   const handleUserSwitch = () => {
     if (switchUser === 0) {
+      setTargetUserId(roomUsers[0]);
+      setNowUserId(roomUsers[1]);
       setSwitchUser(1);
     } else if (switchUser === 1) {
+      setTargetUserId(roomUsers[1]);
+      setNowUserId(roomUsers[0]);
       setSwitchUser(0);
     }
-    setNowUserId(roomUsers[switchUser]);
+    //setNowUserId(roomUsers[switchUser]);
+    console.log(targetUserId, nowUserId);
   };
   return (
     <div className="pageWrapper">
       <div onClick={handleUserSwitch}>
-        <ChattingProfile userId={nowUserId} />
+        <ChattingProfile targetId={targetUserId} />
       </div>
       <Divider />
       <ChattingRoom chatRoomId={Number(id)} />

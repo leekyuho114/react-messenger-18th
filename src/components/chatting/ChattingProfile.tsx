@@ -9,7 +9,7 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 interface ChattingProfileProps {
-  userId: number;
+  targetId: number;
 }
 function ChattingProfile(props: ChattingProfileProps) {
   const users = useRecoilValue(usersState);
@@ -26,20 +26,22 @@ function ChattingProfile(props: ChattingProfileProps) {
       <StyledMore />
       <UserInfoWrapper>
         <UserWrapper>
-          <Heading2 color="var(--gray-7)">{users[props.userId].name}</Heading2>
+          <Heading2 color="var(--gray-7)">
+            {users[props.targetId].name}
+          </Heading2>
           <Caption1
             color={
-              users[props.userId].isWorking === "근무 중"
+              users[props.targetId].isWorking === "근무 중"
                 ? "var(--green)"
                 : "var(--gray-4)"
             }
           >
-            {users[props.userId].isWorking}
+            {users[props.targetId].isWorking}
           </Caption1>
         </UserWrapper>
         <Caption1 color="var(--gray-4)">
-          {users[props.userId].company}/{users[props.userId].department}/
-          {users[props.userId].rank}
+          {users[props.targetId].company}/{users[props.targetId].department}/
+          {users[props.targetId].rank}
         </Caption1>
       </UserInfoWrapper>
     </ChattingProfileWrapper>

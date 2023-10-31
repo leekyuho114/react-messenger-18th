@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { ReactComponent as GreenDot } from "../../assets/icons/GreenDot.svg";
 import { Body1, Heading1 } from "../../style/font";
+import { useRecoilState } from "recoil";
+import { greenDotState } from "../../recoil/state";
 interface ProfileHeaderProps {
   favorite: boolean;
   setFavorite: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,7 +11,11 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   favorite,
   setFavorite,
 }) => {
+  const [greenDot, setGreenDot] = useRecoilState(greenDotState);
   const favoriteToggle = () => {
+    if (greenDot === true) {
+      setGreenDot(false);
+    }
     setFavorite(true);
   };
   const allToggle = () => {
@@ -35,6 +42,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           ) : (
             <Body1 color="var(--gray-3)">즐겨찾기</Body1>
           )}
+          {greenDot ? <GreenDotIcon /> : null}
         </NavFavorite>
       </ProfileNav>
     </ProfileHeaderWrapper>
@@ -80,4 +88,10 @@ const NavFavorite = styled.div<{ favorite: boolean }>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
+`;
+const GreenDotIcon = styled(GreenDot)`
+  position: absolute;
+  top: 0.75rem;
+  right: 0.1rem;
 `;

@@ -36,3 +36,8 @@ export const chatListByIdState = atomFamily({
     return chatRoom ? chatRoom.chatList : [];
   },
 });
+//즐겨찾기 추가 시 초록점 생성 toggle
+export const greenDotState = atom({
+  key: "greenDotState",
+  default: false,
+});

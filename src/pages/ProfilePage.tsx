@@ -10,7 +10,7 @@ const ProfilePage = () => {
   return (
     <div className="pageWrapper">
       <ProfileHeader favorite={favorite} setFavorite={setFavorite} />
-      <ProfileList />
+      <ProfileList favorite={favorite} />
       <Footer page="people" />
       <HomeIndicator color="var(--gray-1)" />
     </div>

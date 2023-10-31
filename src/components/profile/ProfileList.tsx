@@ -2,15 +2,30 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { friendsState } from "../../recoil/state";
 import ProfileCard from "./ProfileCard";
-const ProfileList: React.FC = () => {
+interface ProfileListProps {
+  favorite: boolean;
+}
+const ProfileList: React.FC<ProfileListProps> = ({ favorite }) => {
   const userList = useRecoilValue(friendsState);
-  return (
-    <ProfileListWrapper>
-      {userList.map((value, index) => {
-        return <ProfileCard userIndex={index} />;
-      })}
-    </ProfileListWrapper>
-  );
+  if (favorite === false) {
+    return (
+      <ProfileListWrapper>
+        {userList.map((value, index) => {
+          return <ProfileCard userIndex={index} favorite={favorite} />;
+        })}
+      </ProfileListWrapper>
+    );
+  } else {
+    return (
+      <ProfileListWrapper>
+        {userList.map((value, index) =>
+          value.favorite === 1 ? (
+            <ProfileCard userIndex={index} favorite={favorite} />
+          ) : null
+        )}
+      </ProfileListWrapper>
+    );
+  }
 };
 export default ProfileList;
 

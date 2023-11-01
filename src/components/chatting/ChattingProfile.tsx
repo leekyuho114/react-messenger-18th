@@ -12,6 +12,7 @@ import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 interface ChattingProfileProps {
   targetId: number;
+  onUserSwitch: () => void;
 }
 function ChattingProfile(props: ChattingProfileProps) {
   const users = useRecoilValue(usersState);
@@ -24,9 +25,7 @@ function ChattingProfile(props: ChattingProfileProps) {
         }}
       />
       <StyledFriends />
-      <StyledCall />
-      <StyledMore />
-      <UserInfoWrapper>
+      <UserInfoWrapper onClick={props.onUserSwitch}>
         <UserWrapper>
           <Heading2 color="var(--gray-7)">
             {users[props.targetId].name}
@@ -46,54 +45,48 @@ function ChattingProfile(props: ChattingProfileProps) {
           {users[props.targetId].rank}
         </Caption1>
       </UserInfoWrapper>
+      <StyledCall />
+      <StyledMore />
     </ChattingProfileWrapper>
   );
 }
 const ChattingProfileWrapper = styled.div`
-  position: relative;
   width: 22.1875rem;
   height: 3rem;
   padding: 0.5rem 0.625rem;
+  display: flex;
+  align-items: center;
 `;
 const StyledBack = styled(Back)`
-  position: absolute;
   width: 0.625rem;
   height: 1.25rem;
   padding: 0.25rem 0.625rem;
-  left: 0.625rem;
-  top: 1.19rem;
+  cursor: pointer;
   &:hover {
     color: #ffffff;
     filter: brightness(300%);
   }
 `;
 const StyledFriends = styled(Friends)`
-  position: absolute;
   width: 3rem;
   height: 3rem;
-  left: 3.56rem;
-  top: 0.5rem;
+  margin-left: 1.06rem;
 `;
 const StyledCall = styled(Call)`
-  position: absolute;
   width: 1.125rem;
   height: 1.125rem;
   padding: 0.3125rem;
-  right: 3.375rem;
-  top: 1.125rem;
 `;
 const StyledMore = styled(More)`
-  position: absolute;
-  right: 0.625rem;
-  top: 1.125rem;
+  margin-left: 0.625rem;
 `;
 const UserInfoWrapper = styled.div`
-  position: absolute;
-  left: 7.06rem;
+  width: 11.25rem;
   padding-top: 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start; /*왼쪽으로 정렬*/
+  margin-left: 0.5rem;
 `;
 const UserWrapper = styled.div`
   display: flex;

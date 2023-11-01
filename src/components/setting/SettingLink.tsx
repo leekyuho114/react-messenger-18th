@@ -1,8 +1,11 @@
 //style
 import styled from "styled-components";
 import { Body1 } from "../../style/font";
+import { ReactComponent as Link } from "../../assets/icons/Link.svg";
 import { ReactComponent as Next } from "../../assets/icons/Next.svg";
 const SettingLink = () => {
+  const designerUrl = "https://www.instagram.com/naenzae_/";
+  const developerUrl = "https://www.instagram.com/2_95k/";
   return (
     <SettingLinkWrapper>
       <BussinessCard>
@@ -14,11 +17,19 @@ const SettingLink = () => {
       </SNSHeader>
       <SNSLink>
         <Body1 color="var(--green)">인스타그램</Body1>
-        <NextIcon />
+        <LinkIcon
+          onClick={() => {
+            window.open(designerUrl);
+          }}
+        />
       </SNSLink>
       <SNSLink>
         <Body1 color="var(--green)">이메일</Body1>
-        <NextIcon />
+        <LinkIcon
+          onClick={() => {
+            window.open(developerUrl);
+          }}
+        />
       </SNSLink>
       <SNSLink>
         <Body1 color="var(--green)">홈페이지</Body1>
@@ -32,6 +43,10 @@ const SettingLinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 24rem;
+`;
+const LinkIcon = styled(Link)`
+  padding: 0.25rem 0.25rem 0.25rem 0.56rem;
+  cursor: pointer;
 `;
 const NextIcon = styled(Next)`
   padding: 0.25rem 0.56rem 0.25rem 0.56rem;
@@ -67,6 +82,9 @@ const SNSLink = styled.div`
   align-items: center;
   & > ${Body1} {
     margin-left: 1.25rem;
+  }
+  & > ${LinkIcon} {
+    margin-right: 0.69rem;
   }
   & > ${NextIcon} {
     margin-right: 0.69rem;

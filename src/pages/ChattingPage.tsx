@@ -59,9 +59,12 @@ function ChattingPage() {
   };
   return (
     <div className="pageWrapper">
-      <div onClick={handleUserSwitch}>
-        <ChattingProfile targetId={targetUserId} />
-      </div>
+      {/* <div onClick={handleUserSwitch}> */}
+      <ChattingProfile
+        targetId={targetUserId}
+        onUserSwitch={handleUserSwitch}
+      />
+      {/* </div> */}
       <Divider />
       <ChattingRoom chatRoomId={Number(id)} />
       <ChattingInput chatRoomId={Number(id)} />

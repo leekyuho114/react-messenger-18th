@@ -1,5 +1,10 @@
+//style
+import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
+import { ReactComponent as Next } from "../../assets/icons/Next.svg";
+import { ReactComponent as Star } from "../../assets/icons/Star.svg";
+import { Body2, Caption1, Heading2 } from "../../style/font";
 import styled from "styled-components";
-//react, recoil
+//component
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   chatRoomListState,
@@ -7,12 +12,8 @@ import {
   greenDotState,
 } from "../../recoil/state";
 import { useRef, useState } from "react";
-//icons, fonts
-import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
-import { ReactComponent as Next } from "../../assets/icons/Next.svg";
-import { ReactComponent as Star } from "../../assets/icons/Star.svg";
-import { Body2, Caption1, Heading2 } from "../../style/font";
 import { useNavigate } from "react-router-dom";
+
 interface ProfileCardProps {
   userIndex: number;
   favorite: boolean; // 현재 페이지 상태

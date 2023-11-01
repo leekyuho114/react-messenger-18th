@@ -1,5 +1,7 @@
-import { useRecoilValue } from "recoil";
+//style
 import styled from "styled-components";
+//component
+import { useRecoilValue } from "recoil";
 import { friendsState } from "../../recoil/state";
 import ProfileCard from "./ProfileCard";
 interface ProfileListProps {

@@ -1,3 +1,4 @@
+//style
 import styled from "styled-components";
 import { ReactComponent as Liked } from "../../assets/icons/Liked.svg";
 import { ReactComponent as NotLiked } from "../../assets/icons/NotLiked.svg";

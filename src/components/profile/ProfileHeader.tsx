@@ -1,6 +1,8 @@
+//style
 import styled from "styled-components";
 import { ReactComponent as GreenDot } from "../../assets/icons/GreenDot.svg";
 import { Body1, Heading1 } from "../../style/font";
+//component
 import { useRecoilState } from "recoil";
 import { greenDotState } from "../../recoil/state";
 interface ProfileHeaderProps {

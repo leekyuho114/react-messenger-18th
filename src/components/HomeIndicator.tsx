@@ -1,3 +1,4 @@
+//style
 import { ReactComponent as HomeBar } from "../assets/iphone/HomeBar.svg";
 import styled from "styled-components";
 interface HomeIndicatorProps {

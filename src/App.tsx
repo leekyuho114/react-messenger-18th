@@ -1,11 +1,12 @@
+//style
 import GlobalStyle from "./style/GlobalStyle";
+import "./style/color.css";
+//component
 import ChattingPage from "./pages/ChattingPage";
 import StatusBar from "./components/StatusBar";
-import HomeIndicator from "./components/HomeIndicator";
 import { Routes, Route } from "react-router-dom";
 import ChatPage from "./pages/ChatPage";
 import ProfilePage from "./pages/ProfilePage";
-import "./style/color.css";
 import SettingPage from "./pages/SettingPage";
 function App() {
   return (

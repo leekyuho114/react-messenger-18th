@@ -77,7 +77,13 @@ const ProfileCard = (props: ProfileCardProps) => {
       //X 움직인거리
       const moveX = touchEndX - touchStartX.current;
       if (moveX > 50) {
-        setFavoriteToggle(!favoriteToggle);
+        if (favoriteToggle === false) {
+          setFavoriteToggle(!favoriteToggle);
+        }
+      } else if (moveX < -50) {
+        if (favoriteToggle === true) {
+          setFavoriteToggle(!favoriteToggle);
+        }
       }
       touchStartX.current = null;
     }

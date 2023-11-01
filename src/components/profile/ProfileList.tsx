@@ -39,4 +39,6 @@ const ProfileListWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari*/
   }
+  overflow-x: hidden;
 `;
+//즐겨찾기 버튼 좌우 스크롤 방지

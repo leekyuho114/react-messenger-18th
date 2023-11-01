@@ -1,3 +1,4 @@
+//style
 import { ReactComponent as Battery } from "../assets/iphone/Battery.svg";
 import { ReactComponent as Clock } from "../assets/iphone/Clock.svg";
 import { ReactComponent as Signal } from "../assets/iphone/Signal.svg";

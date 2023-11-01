@@ -1,7 +1,9 @@
+//style
 import styled from "styled-components";
 import "../../style/color.css";
 import { ReactComponent as EmptyChat } from "../../assets/icons/EmptyChat.svg";
 import { Caption1, Body2 } from "../../style/font";
+//component
 import { useEffect, useRef } from "react";
 import ChatBubble from "./ChatBubble";
 import { useRecoilValue } from "recoil";
@@ -63,6 +65,9 @@ function ChattingRoom(props: ChattingProps) {
                 isMyChat={chatList[index].userId === nowUser}
                 message={chatList[index].message}
                 chatDate={chatList[index].date}
+                isLiked={chatList[index].like}
+                index={index}
+                roomId={props.chatRoomId}
               />
             </>
           );

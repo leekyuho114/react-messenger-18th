@@ -1,5 +1,10 @@
+//style
+import { ReactComponent as Friends } from "../../assets/icons/Friends.svg";
+import { ReactComponent as Next } from "../../assets/icons/Next.svg";
+import { ReactComponent as Star } from "../../assets/icons/Star.svg";
+import { Body2, Caption1, Heading2 } from "../../style/font";
 import styled from "styled-components";
-//react, recoil
+//component
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   chatRoomListState,
@@ -7,12 +12,8 @@ import {
   greenDotState,
 } from "../../recoil/state";
 import { useRef, useState } from "react";
-//icons, fonts
-import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
-import { ReactComponent as Next } from "../../assets/icons/Next.svg";
-import { ReactComponent as Star } from "../../assets/icons/Star.svg";
-import { Body2, Caption1, Heading2 } from "../../style/font";
 import { useNavigate } from "react-router-dom";
+
 interface ProfileCardProps {
   userIndex: number;
   favorite: boolean; // 현재 페이지 상태
@@ -56,17 +57,37 @@ const ProfileCard = (props: ProfileCardProps) => {
   //friend index에 해당하는 채팅으로 navigate
   const handleNavigate = () => {
     const chatNumber = chatList.findIndex(
-      (chatRoom) => chatRoom.userList[1] === props.userIndex
+      (chatRoom) => chatRoom.userList[1] === props.userIndex + 1
     );
+    console.log(chatNumber);
     if (chatNumber === -1) {
       alert("채팅 없음 미구현");
     } else {
       navigate("/chat/" + chatNumber);
     }
   };
-
+  //모바일 터치 슬라이드 구현
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current) {
+      const touchEndX = e.changedTouches[0].clientX;
+      //X 움직인거리
+      const moveX = touchEndX - touchStartX.current;
+      if (moveX > 50) {
+        setFavoriteToggle(!favoriteToggle);
+      }
+      touchStartX.current = null;
+    }
+  };
   return (
-    <ProfileCardWrapper onContextMenu={handleOnContextMenu}>
+    <ProfileCardWrapper
+      onContextMenu={handleOnContextMenu}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <FavoriteButton
         favoriteToggle={favoriteToggle}
         onClick={handleFavoriteClick}

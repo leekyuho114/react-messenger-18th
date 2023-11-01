@@ -1,4 +1,4 @@
-import { atom, atomFamily, selector, selectorFamily } from "recoil";
+import { atom, atomFamily } from "recoil";
 import userData from "../data/userData.json";
 import chatData from "../data/chatData.json";
 //현재 login한 user,나머지 user list, chattingRoom list

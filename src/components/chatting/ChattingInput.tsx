@@ -1,8 +1,10 @@
-import { useState } from "react";
+//style
 import { ReactComponent as Plus } from "../../assets/icons/Plus.svg";
 import { ReactComponent as Send } from "../../assets/icons/Send.svg";
 import styled from "styled-components";
 import { Body2 } from "../../style/font";
+//component
+import { useState } from "react";
 import {
   chatListByIdState,
   chatRoomListState,

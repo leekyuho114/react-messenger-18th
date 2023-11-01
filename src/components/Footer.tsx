@@ -1,7 +1,9 @@
+//style
 import styled from "styled-components";
 import { ReactComponent as People } from "../assets/icons/People.svg";
 import { ReactComponent as Chat } from "../assets/icons/Chat.svg";
 import { ReactComponent as Setting } from "../assets/icons/Setting.svg";
+//component
 import { Navigate, useNavigate } from "react-router-dom";
 interface FooterProps {
   page: string;

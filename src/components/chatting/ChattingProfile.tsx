@@ -78,10 +78,10 @@ const StyledCall = styled(Call)`
   padding: 0.3125rem;
 `;
 const StyledMore = styled(More)`
-  margin-left: 0.625rem;
+  margin-left: 0.31rem;
 `;
 const UserInfoWrapper = styled.div`
-  width: 11.25rem;
+  width: 12.25rem;
   padding-top: 0.2rem;
   display: flex;
   flex-direction: column;

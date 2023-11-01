@@ -1,6 +1,6 @@
 //style
 import styled from "styled-components";
-import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
+import { ReactComponent as Friends } from "../../assets/icons/Friends.svg";
 import { Body2, Caption1, Caption2, Heading2 } from "../../style/font";
 //component
 import { useNavigate } from "react-router-dom";

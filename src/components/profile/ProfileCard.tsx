@@ -1,5 +1,5 @@
 //style
-import { ReactComponent as Friends } from "../../assets/icons/Freinds.svg";
+import { ReactComponent as Friends } from "../../assets/icons/Friends.svg";
 import { ReactComponent as Next } from "../../assets/icons/Next.svg";
 import { ReactComponent as Star } from "../../assets/icons/Star.svg";
 import { Body2, Caption1, Heading2 } from "../../style/font";
@@ -66,9 +66,28 @@ const ProfileCard = (props: ProfileCardProps) => {
       navigate("/chat/" + chatNumber);
     }
   };
-
+  //모바일 터치 슬라이드 구현
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current) {
+      const touchEndX = e.changedTouches[0].clientX;
+      //X 움직인거리
+      const moveX = touchEndX - touchStartX.current;
+      if (moveX > 50) {
+        setFavoriteToggle(!favoriteToggle);
+      }
+      touchStartX.current = null;
+    }
+  };
   return (
-    <ProfileCardWrapper onContextMenu={handleOnContextMenu}>
+    <ProfileCardWrapper
+      onContextMenu={handleOnContextMenu}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <FavoriteButton
         favoriteToggle={favoriteToggle}
         onClick={handleFavoriteClick}

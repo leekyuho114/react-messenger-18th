@@ -30,7 +30,6 @@ function ChatBubble(props: ChatBubbleProps) {
     setLikeToggle(!likeToggle);
   };
   const handleLikeClick = () => {
-    console.log("like!");
     const copy = [...chatList];
     if (chatList[props.index].like === 0) {
       copy[props.index] = {

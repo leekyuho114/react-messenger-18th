@@ -54,7 +54,7 @@ const ProfileCard = (props: ProfileCardProps) => {
     setFavoriteToggle(!favoriteToggle);
   };
   //navigate
-  //friend index에 해당하는 채팅으로 navigate
+  //friend index가 상대방인 채팅으로 navigate
   const handleNavigate = () => {
     const chatNumber = chatList.findIndex(
       (chatRoom) => chatRoom.userList[1] === props.userIndex + 1

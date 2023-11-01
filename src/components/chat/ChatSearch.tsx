@@ -5,7 +5,6 @@ import { ReactComponent as Search } from "../../assets/icons/Search.svg";
 import { useState } from "react";
 const ChatSearch = () => {
   const [input, setInput] = useState("");
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim() !== "") {

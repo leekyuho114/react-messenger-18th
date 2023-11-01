@@ -77,6 +77,7 @@ function ChattingInput(props: ChattingInputProps) {
     </ChattingInputWrapper>
   );
 }
+
 const ChattingInputWrapper = styled.div`
   width: 23.4375rem;
   height: 3.6875rem;
@@ -85,7 +86,7 @@ const ChattingInputWrapper = styled.div`
   .placeHolder {
     pointer-events: none; /*input이 묻히기 때문에 제외*/
     position: absolute;
-    top: 1.56rem;
+    top: 1.69rem;
     left: 4.38rem;
   }
 `;

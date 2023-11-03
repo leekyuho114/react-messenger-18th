@@ -185,4 +185,5 @@ const FavoriteButton = styled.div<{ favoriteToggle: boolean }>`
   justify-content: center;
   align-items: center;
   transition: width 0.3s ease;
+  cursor: pointer;
 `;

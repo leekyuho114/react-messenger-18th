@@ -7,6 +7,7 @@ import { Body2 } from "../../style/font";
 import { useState } from "react";
 import { chatListByIdState, nowUserIdState } from "../../recoil/state";
 import { useRecoilState, useRecoilValue } from "recoil";
+import useInputPlaceholder from "../../utils/usePlaceholder";
 interface ChattingInputProps {
   chatRoomId: number;
 }
@@ -18,22 +19,22 @@ interface ChatInfo {
   like: number;
 }
 function ChattingInput(props: ChattingInputProps) {
-  const [typeMessage, setTypeMessage] = useState("메세지를 입력하세요");
-  const [input, setInput] = useState("");
   //현재 사용 user ID
   const nowUser = useRecoilValue(nowUserIdState);
   const [chatList, setChatList] = useRecoilState(
     chatListByIdState(props.chatRoomId)
   );
-  //메세지창에 메세지 없을 때만 placeholder 출력
-  const handleFocus = () => {
-    setTypeMessage("");
-  };
-  const handleBlur = () => {
-    if (input.trim() === "") {
-      setTypeMessage("메세지를 입력하세요");
-    }
-  };
+  //placeholder custom hook
+  const {
+    typeMessage,
+    setTypeMessage,
+    input,
+    setInput,
+    handleFocus,
+    handleBlur,
+    handleOnChange,
+  } = useInputPlaceholder();
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (input.trim() !== "") {
@@ -50,9 +51,7 @@ function ChattingInput(props: ChattingInputProps) {
       setInput("");
     }
   };
-  const handleOnChange = (e: any) => {
-    setInput(e.target.value);
-  };
+
   return (
     <ChattingInputWrapper>
       <StyledPlus />

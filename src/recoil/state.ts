@@ -41,3 +41,8 @@ export const greenDotState = atom({
   key: "greenDotState",
   default: false,
 });
+//이름 찾기 input
+export const nameSearchState = atom({
+  key: "nameSearchState",
+  default: "",
+});

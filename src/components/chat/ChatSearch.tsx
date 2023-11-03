@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/icons/Search.svg";
 //component
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { nameSearchState } from "../../recoil/state";
 const ChatSearch = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useRecoilState(nameSearchState);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim() !== "") {
@@ -13,7 +15,6 @@ const ChatSearch = () => {
   };
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
-    console.log(input);
   };
   return (
     <ChatSearchWrapper>

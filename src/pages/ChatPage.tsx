@@ -5,6 +5,7 @@ import HomeIndicator from "../components/HomeIndicator";
 import Footer from "../components/Footer";
 const ChatPage = () => {
   //const roomList = useRecoilState(chatRoomListState);
+
   return (
     <div className="pageWrapper">
       <ChatHeader />

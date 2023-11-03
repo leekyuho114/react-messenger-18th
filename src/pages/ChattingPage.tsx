@@ -3,7 +3,7 @@ import ChattingInput from "../components/chatting/ChattingInput";
 import ChattingProfile from "../components/chatting/ChattingProfile";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import {
   chatListByIdState,
   chatRoomListState,
@@ -27,10 +27,8 @@ function ChattingPage() {
   const [targetUserId, setTargetUserId] = useState(roomUsers[1]);
   //user switch 상태
   const [switchUser, setSwitchUser] = useState(0);
-  //list 길이 체크해서 빈 채팅방 or 채팅있는 채팅방
-  const chatList = chatRoomList[Number(id)].chatList;
   //현재 사용중인 user의 id(login user 아님)
-  const [nowUserId, setNowUserId] = useRecoilState(nowUserIdState);
+  const setNowUserId = useSetRecoilState(nowUserIdState);
   //localstorage에 없으면 json 파일 저장, 있으면 chatList 불러옴
   const initializeChat = localStorage.getItem("chat" + String(Number(id)));
   useEffect(() => {

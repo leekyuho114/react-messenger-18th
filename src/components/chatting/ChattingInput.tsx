@@ -5,11 +5,7 @@ import styled from "styled-components";
 import { Body2 } from "../../style/font";
 //component
 import { useState } from "react";
-import {
-  chatListByIdState,
-  chatRoomListState,
-  nowUserIdState,
-} from "../../recoil/state";
+import { chatListByIdState, nowUserIdState } from "../../recoil/state";
 import { useRecoilState, useRecoilValue } from "recoil";
 interface ChattingInputProps {
   chatRoomId: number;

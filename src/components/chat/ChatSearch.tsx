@@ -2,7 +2,6 @@
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/icons/Search.svg";
 //component
-import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { nameSearchState } from "../../recoil/state";
 const ChatSearch = () => {

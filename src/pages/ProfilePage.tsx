@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Footer from "../components/Footer";
 import HomeIndicator from "../components/HomeIndicator";
 import ProfileHeader from "../components/profile/ProfileHeader";

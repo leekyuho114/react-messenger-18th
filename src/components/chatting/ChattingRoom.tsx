@@ -21,7 +21,6 @@ function ChattingRoom(props: ChattingProps) {
   //chat 추가 되면 scroll 밑으로
   const scrollRef = useRef<HTMLDivElement>(null);
   //chat 추가되면 scroll 내리고, localstorage 저장
-  //마지막 채팅 시간 순으로 정렬
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
